@@ -9,7 +9,7 @@ namespace Calculator
             Console.WriteLine("Plese enter comma separated integers: e.g. 2,4,5");
             string userInput = Console.ReadLine();
 
-            Console.WriteLine("Do you want to multiply these together or return the array of squares? (Enter '*' or '^'.)");
+            Console.WriteLine("Do you want to return the product, quotient, sum, average, or return the array of squares? (Enter '*', '/', '+', 'avg', or '^'.)");
             var request = Console.ReadLine();
 
 
@@ -51,6 +51,31 @@ namespace Calculator
                     }
                     Console.WriteLine();
                     Console.WriteLine($"Here are your original values squared.");
+                    break;
+                case "/":
+                    float quotient = numbers[0];
+                    for (int i = 1; i < numbers.Length; i++)
+                    {
+                        quotient = quotient / numbers[i];
+                    }
+                    Console.WriteLine($"The quotient of your array is {quotient}.");
+                    break;
+                case "+":
+                    int sum = numbers[0];
+                    for (int i =1; i < numbers.Length; i++)
+                    {
+                        sum += numbers[i];
+                    }
+                    Console.WriteLine($"The sum of your array is {sum}.");
+                    break;
+                case "avg":
+                    int sumForAvg = numbers[0];
+                    for (int i = 1; i < numbers.Length; i++)
+                    {
+                        sumForAvg += numbers[i];
+                    }
+                    float avg = sumForAvg / (numbers.Length);
+                    Console.WriteLine($"The average is {avg}.");
                     break;
                 default:
                     Console.WriteLine("Sorry, not a valid request.");
